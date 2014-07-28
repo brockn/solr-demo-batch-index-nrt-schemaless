@@ -1,0 +1,4 @@
+Two demos:
+
+* Index a parquet table in batch mode
+* NRT Schemaless Index data from Syslog
