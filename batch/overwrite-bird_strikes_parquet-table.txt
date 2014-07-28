@@ -1,0 +1,1 @@
+insert overwrite table bird_strikes_parquet select * from bird_strikes;

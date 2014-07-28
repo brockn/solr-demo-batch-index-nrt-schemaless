@@ -1,0 +1,53 @@
+CREATE  TABLE `bird_strikes_parquet`(
+  `aircraft_type` string COMMENT 'from deserializer', 
+  `airport_name` string COMMENT 'from deserializer', 
+  `altitude_bin` string COMMENT 'from deserializer', 
+  `aircraft_make_model` string COMMENT 'from deserializer', 
+  `wildlife_number_struck` string COMMENT 'from deserializer', 
+  `effect_impact_to_flight` string COMMENT 'from deserializer', 
+  `effect_other` string COMMENT 'from deserializer', 
+  `location_nearby_if_en_route` string COMMENT 'from deserializer', 
+  `aircraft_flight_number` string COMMENT 'from deserializer', 
+  `flightdate` string COMMENT 'from deserializer', 
+  `record_id` int COMMENT 'from deserializer', 
+  `effect_indicated_damage` string COMMENT 'from deserializer', 
+  `location_freeform_en_route` string COMMENT 'from deserializer', 
+  `aircraft_number_of_engines` int COMMENT 'from deserializer', 
+  `aircraft_airline_operator` string COMMENT 'from deserializer', 
+  `origin_state` string COMMENT 'from deserializer', 
+  `when_phase_of_flight` string COMMENT 'from deserializer', 
+  `conditions_precipitation` string COMMENT 'from deserializer', 
+  `remains_of_wildlife_collected` boolean COMMENT 'from deserializer', 
+  `remains_of_wildlife_sent_to_smithsonian` boolean COMMENT 'from deserializer', 
+  `remarks` string COMMENT 'from deserializer', 
+  `reported_date` string COMMENT 'from deserializer', 
+  `wildlife_size` string COMMENT 'from deserializer', 
+  `conditions_sky` string COMMENT 'from deserializer', 
+  `wildlife_species` string COMMENT 'from deserializer', 
+  `when_time_hhmm` string COMMENT 'from deserializer', 
+  `when_time_of_day` string COMMENT 'from deserializer', 
+  `pilot_warned_of_birds_or_wildlife` string COMMENT 'from deserializer', 
+  `cost_aircraft_time_out_of_service_hours` int COMMENT 'from deserializer', 
+  `cost_other_inflation_adj` int COMMENT 'from deserializer', 
+  `cost_repair_inflation_adj` int COMMENT 'from deserializer', 
+  `cost_total` int COMMENT 'from deserializer', 
+  `miles_from_airport` int COMMENT 'from deserializer', 
+  `feet_above_ground` int COMMENT 'from deserializer', 
+  `number_of_human_fatalities` int COMMENT 'from deserializer', 
+  `number_of_people_injured` int COMMENT 'from deserializer', 
+  `speed_ias_in_knots` int COMMENT 'from deserializer')
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://brock-c51-test0-5.vpc.cloudera.com:8020/user/hive/warehouse/bird_strikes_parquet'
+TBLPROPERTIES (
+  'numPartitions'='0', 
+  'numFiles'='1', 
+  'transient_lastDdlTime'='1405406476', 
+  'totalSize'='9982699', 
+  'numRows'='0', 
+  'rawDataSize'='0');

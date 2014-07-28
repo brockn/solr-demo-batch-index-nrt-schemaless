@@ -1,0 +1,53 @@
+CREATE  TABLE `bird_strikes`(
+  `aircraft_type` string, 
+  `airport_name` string, 
+  `altitude_bin` string, 
+  `aircraft_make_model` string, 
+  `wildlife_number_struck` string, 
+  `effect_impact_to_flight` string, 
+  `effect_other` string, 
+  `location_nearby_if_en_route` string, 
+  `aircraft_flight_number` string, 
+  `flightdate` string, 
+  `record_id` int, 
+  `effect_indicated_damage` string, 
+  `location_freeform_en_route` string, 
+  `aircraft_number_of_engines` int, 
+  `aircraft_airline_operator` string, 
+  `origin_state` string, 
+  `when_phase_of_flight` string, 
+  `conditions_precipitation` string, 
+  `remains_of_wildlife_collected` boolean, 
+  `remains_of_wildlife_sent_to_smithsonian` boolean, 
+  `remarks` string, 
+  `reported_date` string, 
+  `wildlife_size` string, 
+  `conditions_sky` string, 
+  `wildlife_species` string, 
+  `when_time_hhmm` string, 
+  `when_time_of_day` string, 
+  `pilot_warned_of_birds_or_wildlife` string, 
+  `cost_aircraft_time_out_of_service_hours` int, 
+  `cost_other_inflation_adj` int, 
+  `cost_repair_inflation_adj` int, 
+  `cost_total` int, 
+  `miles_from_airport` int, 
+  `feet_above_ground` int, 
+  `number_of_human_fatalities` int, 
+  `number_of_people_injured` int, 
+  `speed_ias_in_knots` int)
+ROW FORMAT DELIMITED 
+  FIELDS TERMINATED BY '\t' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://brock-c51-test0-5.vpc.cloudera.com:8020/user/hive/warehouse/bird_strikes'
+TBLPROPERTIES (
+  'numPartitions'='0', 
+  'numFiles'='1', 
+  'transient_lastDdlTime'='1405384812', 
+  'totalSize'='25635230', 
+  'numRows'='0', 
+  'rawDataSize'='0');
